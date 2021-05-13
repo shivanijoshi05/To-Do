@@ -93,7 +93,8 @@ public class addTask extends AppCompatActivity implements DatePickerDialog.OnDat
     }
     @Override
     public void onDateSet (DatePicker view,int year, int month, int dayOfMonth){
-            String d = dayOfMonth +"/" + month+1 +"/"+ year;
+            month=month+1;
+            String d = dayOfMonth +"/" + month +"/"+ year;
             date.setText(d);
     }
 
