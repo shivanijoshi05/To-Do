@@ -62,17 +62,7 @@ public class addTask extends AppCompatActivity implements DatePickerDialog.OnDat
             }
         });
 
-        if (getIntent().getExtras() != null) {
-            Bundle extras = getIntent().getExtras();
-            ToDoModel todo = (ToDoModel) extras.get("todo");
-            if (todo != null) {
 
-                name.setText(todo.getName());
-                description.setText(todo.getDescription());
-                date.setText(todo.getDate());
-
-            }
-        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,8 +93,9 @@ public class addTask extends AppCompatActivity implements DatePickerDialog.OnDat
     }
     @Override
     public void onDateSet (DatePicker view,int year, int month, int dayOfMonth){
-            String d = dayOfMonth +"/" + month +"/"+ year;
-            date.setText(d);
+        month+=1;   
+        String d = dayOfMonth +"/" + month +"/"+ year;
+        date.setText(d);
     }
 
     void addingTasks(){
