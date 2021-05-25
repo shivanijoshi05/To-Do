@@ -9,7 +9,7 @@
         android:roundIcon="@android:drawable/checkbox_on_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDo">
-        <activity android:name=".Signup"></activity>
+        <activity android:name=".SignUp"></activity>
         <activity android:name=".Login" />
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".taskViewSample" />
         <activity android:name=".addTask" />
         <activity android:name=".MainActivity" />
     </application>

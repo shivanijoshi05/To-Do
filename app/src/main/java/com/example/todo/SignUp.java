@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Signup extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     EditText email,password,confirmPassword;
@@ -75,12 +75,12 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Signup.this,"User Registered.",Toast.LENGTH_SHORT).show();
-                            Intent signupIntent = new Intent(Signup.this,MainActivity.class);
-                            startActivity(signupIntent);
+                            Toast.makeText(SignUp.this,"User Registered.",Toast.LENGTH_SHORT).show();
+                            Intent SignUpIntent = new Intent(SignUp.this,MainActivity.class);
+                            startActivity(SignUpIntent);
                         }
                         else{
-                            Toast.makeText(Signup.this,"Error "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this,"Error "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -91,7 +91,7 @@ public class Signup extends AppCompatActivity {
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Signup.this,Login.class));
+                startActivity(new Intent(SignUp.this,Login.class));
             }
         });
     }

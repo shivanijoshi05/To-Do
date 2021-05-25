@@ -18,7 +18,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
-            android:text="New Task"
+            android:text="@string/new_task"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -32,10 +32,11 @@
             android:background="@drawable/edit_text"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Add your task here"
+            android:hint="@string/task_name"
             android:inputType="textMultiLine"
             android:padding="10dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:autofillHints="@string/task_name" />
 
         <EditText
             android:id="@+id/description"
@@ -43,14 +44,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/edit_text"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Add description"
+            android:hint="@string/add_description"
             android:inputType="textMultiLine"
             android:padding="10dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:autofillHints="@string/add_description" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,10 +70,12 @@
                 android:background="@drawable/edit_text"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Add due date"
+                android:hint="@string/add_due_date"
                 android:inputType="textMultiLine"
                 android:padding="10dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:autofillHints="@string/add_due_date"
+                tools:ignore="TextFields" />
 
             <ImageView
                 android:id="@+id/calendar"
@@ -80,7 +84,8 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="44dp"
-                app:srcCompat="@drawable/calendar" />
+                app:srcCompat="@drawable/calendar"
+                android:contentDescription="@string/calendar" />
 
         </LinearLayout>
 
@@ -113,7 +118,38 @@
             app:maxImageSize="20dp"
             app:srcCompat="@drawable/check"
             app:tint="@color/white"
-            app:useCompatPadding="false" />
+            app:useCompatPadding="false"
+            android:contentDescription="@string/save_task"
+            android:layout_alignParentEnd="true"
+            android:focusable="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/update"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            app:backgroundTint="@color/black"
+            app:elevation="10dp"
+            app:fabSize="normal"
+            app:maxImageSize="18dp"
+            app:srcCompat="@drawable/edit"
+            app:tint="@color/white"
+            app:useCompatPadding="false"
+            android:contentDescription="@string/update"
+            android:layout_alignParentEnd="true"
+            android:focusable="true" />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

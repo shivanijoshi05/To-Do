@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">To Do App</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="login_account">Already have an account? Login</string>
+    <string name="task_name">Add task name</string>
+    <string name ="add_description">Add description</string>
+    <string name="add_due_date">Due date</string>
+    <string name="add_task">add task</string>
+    <string name="calendar">calendar</string>
+    <string name="new_task">New Task</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_account">New User? Create Account</string>
+    <string name="msg">Nothing left to do</string>
+    <string name="your_tasks">Your Tasks</string>
+    <string name="save_task">save task</string>
+    <string name="update">update</string>
 </resources>

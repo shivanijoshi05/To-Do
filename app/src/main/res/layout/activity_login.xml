@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="170dp"
-            android:text="To Do App"
+            android:text="@string/app_name"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="24sp" />
@@ -31,10 +31,11 @@
             android:layout_marginBottom="6dp"
             android:background="@drawable/edit_text"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:autofillHints="@string/email" />
 
         <EditText
             android:id="@+id/loginPwd"
@@ -45,10 +46,11 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textWebPassword"
             android:padding="10dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:autofillHints="@string/password" />
 
         <TextView
             android:id="@+id/forgotPwd"
@@ -57,7 +59,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="80dp"
             android:layout_marginLeft="80dp"
-            android:text="Forgot Password?" />
+            android:text="@string/forgot_password" />
 
         <Button
             android:id="@+id/loginBtn"
@@ -65,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/white"
             android:textColorHighlight="#FFFFFF"
             android:textColorLink="@color/black"
@@ -75,11 +77,11 @@
         <TextView
             android:id="@+id/signupLink"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:text="New User? Create Account" />
+            android:text="@string/create_account" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

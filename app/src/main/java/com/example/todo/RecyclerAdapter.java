@@ -10,15 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHolder> {
 
         ArrayList<ToDoModel> list ;
         Context context;
-        FirebaseDatabase db;
+
 
 
         public RecyclerAdapter(ArrayList<ToDoModel> list, Context context) {
@@ -30,7 +28,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
         public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view;
             view = LayoutInflater.from(context).inflate(R.layout.activity_task_view_sample, parent, false);
-            return new RecyclerAdapter.viewHolder(view);
+            return new viewHolder(view);
 
         }
 
@@ -50,7 +48,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
             return list.size();
         }
 
-        public class viewHolder extends RecyclerView.ViewHolder {
+        public static class viewHolder extends RecyclerView.ViewHolder {
 
             TextView name, desc, date ;
             CheckBox box;

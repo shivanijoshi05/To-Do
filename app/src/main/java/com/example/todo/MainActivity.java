@@ -73,10 +73,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         fAuth = FirebaseAuth.getInstance();
-        switch (item.getItemId()){
-            case R.id.signout:
-                fAuth.signOut();
-                startActivity(new Intent(MainActivity.this,Login.class));
+        if (item.getItemId() == R.id.signout) {
+            fAuth.signOut();
+            startActivity(new Intent(MainActivity.this, Login.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -85,21 +84,19 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        database.getReference("todoList").addListenerForSingleValueEvent(
+        database.getReference(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         taskList.clear();
-                       // DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-                        Log.w("ToDoapp", "getUser:onCancelled " + dataSnapshot.toString());
-                        Log.w("ToDoapp", "count = " + String.valueOf(dataSnapshot.getChildrenCount()) + " values " + dataSnapshot.getKey());
+                        Log.w("ToDoApp", "getUser:onCancelled " + dataSnapshot.toString());
+                        Log.w("ToDoApp", "count = " + String.valueOf(dataSnapshot.getChildrenCount()) + " values " + dataSnapshot.getKey());
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
                             ToDoModel todo = data.getValue(ToDoModel.class);
-                            if(userId.contentEquals(todo.getUId())){
-                                taskList.add(todo);
-                            }
+                            taskList.add(todo);
+
                         }
                         adapter.notifyDataSetChanged();
                         if(taskList.isEmpty()){
@@ -112,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Log.w("ToDoapp", "getUser:onCancelled", error.toException());
+                        Log.w("ToDoApp", "getUser:onCancelled", error.toException());
                     }
                 });
     }
 
-    ItemTouchHelper.SimpleCallback call = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+    ItemTouchHelper.SimpleCallback call = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             return false;
@@ -126,12 +123,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             int pos = viewHolder.getAdapterPosition();
+            ToDoModel t = taskList.get(pos);
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
             if(direction == ItemTouchHelper.LEFT){
-
-               ToDoModel t = taskList.get(pos);
-               DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-
-               ref.child("todoList").child(t.getId())
+               ref.child(userId).child(t.getId())
                  .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                    @Override
                    public void onComplete(@NonNull Task<Void> task) {
@@ -148,6 +145,12 @@ public class MainActivity extends AppCompatActivity {
                        Toast.makeText(MainActivity.this,"Task Deleted.",Toast.LENGTH_SHORT).show();
                    }
                });
+            }
+            else{
+                Intent newIntent = new Intent(MainActivity.this,addTask.class);
+                newIntent.putExtra(userId, taskList.get(pos));
+                MainActivity.this.startActivity(newIntent);
+                adapter.notifyDataSetChanged();
             }
         }
     };

@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
         signUpLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this,Signup.class));
+                startActivity(new Intent(Login.this, SignUp.class));
             }
         });
 
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
                 loadingBar.dismiss();
                 if(task.isSuccessful())
                 {
-                    // if isSuccessful then done messgae will be shown
+                    // if isSuccessful then done message will be shown
                     // and you can change the password
                     Toast.makeText(Login.this,"Done sent",Toast.LENGTH_LONG).show();
                 }

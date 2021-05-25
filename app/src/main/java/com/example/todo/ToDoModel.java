@@ -5,19 +5,11 @@ import java.util.HashMap;
 
 public class ToDoModel implements Serializable {
 
-    private String name,description,date,id,uid;
+    private String id,name,description,date;
 
 
-    public ToDoModel() {
+    public ToDoModel() { }
 
-    }
-    public String getUId() {
-        return uid;
-    }
-
-    public void setUId (String uid) {
-        this.uid = uid;
-    }
 
     public String getId() {
         return id;
@@ -54,7 +46,7 @@ public class ToDoModel implements Serializable {
 
     public HashMap<String,String> toFirebaseObject() {
         HashMap<String,String> tasks =  new HashMap<String,String>();
-        tasks.put("uid",uid);
+
         tasks.put("id",id);
         tasks.put("name", name);
         tasks.put("description", description);
