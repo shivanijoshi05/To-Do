@@ -8,7 +8,7 @@ Here are the screens of the application :
 
 
 ![splash](https://user-images.githubusercontent.com/60170680/119781327-8354e080-bee8-11eb-9231-bd589fe527ac.jpg)
-![login](https://user-images.githubusercontent.com/60170680/119783084-7fc25900-beea-11eb-9bb2-1bb8bd931a44.jpg)
+!!!!![login](https://user-images.githubusercontent.com/60170680/119783084-7fc25900-beea-11eb-9bb2-1bb8bd931a44.jpg)
 
 ![signup](https://user-images.githubusercontent.com/60170680/119783160-95378300-beea-11eb-99b2-67425135b595.jpg)
 ![home](https://user-images.githubusercontent.com/60170680/119783238-aa141680-beea-11eb-84ae-02f66dff83b6.jpg)
