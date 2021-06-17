@@ -18,7 +18,7 @@ Here are the screens of the application :
                 ![datepicker_dialog](https://user-images.githubusercontent.com/60170680/119783961-5e15a180-beeb-11eb-9152-05cb3142b1ae.jpg)
 
 ![tasks](https://user-images.githubusercontent.com/60170680/119784160-8e5d4000-beeb-11eb-870b-6d5fcd65ad3a.jpg)
-                ![updating_tasks](https://user-images.githubusercontent.com/60170680/119784664-104d6900-beec-11eb-96b9-94936f3210a6.jpg)
+                ![updating_tasks](https://user-images.githubusercontent.com/60170680/122407245-1ab8cb00-cf9f-11eb-96da-4da0157cd9bb.jpg)
 
 
 
